@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import "./env";
-import schema from "./src/graphql/schema";
-import connect from "./database";
+import fastifyLoader from "./src/fastifyLoader";
 import startServer from "./web";
 
-startServer(schema, connect())
+fastifyLoader()
+  .then(startServer)
   .catch(console.error);
